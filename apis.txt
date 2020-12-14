@@ -1,0 +1,88 @@
+Api :-http://localhost:9092/locationInfo
+
+request :-
+{
+    "locationId":2
+}
+
+response :-
+{
+    "locationId": 2,
+    "name": "delhi",
+    "createdDate": "2020-11-30T18:30:00.000+00:00",
+    "updatedDate": "2020-12-13T18:30:00.000+00:00"
+}
+=============================================================
+Api :-http://localhost:9092/personInfo
+
+request :-
+{
+    "personId":2
+}
+
+response :-
+{
+    "personId": 2,
+    "name": "cipher",
+    "email": "king@test.com",
+    "birthdate": "1993-04-24T18:30:00.000+00:00",
+    "cityId": 3,
+    "status": "inactive",
+    "createdDate": "2020-11-24T18:30:00.000+00:00",
+    "updatedDate": "2020-12-13T18:30:00.000+00:00"
+}
+=============================================================
+Api :-http://localhost:9092/updateLocation
+
+request :-
+{
+    "locationId": 3,
+    "name": "milpitas"
+}
+
+response :-
+{
+    "locationId": 3,
+    "name": "milpitas",
+    "createdDate": "2020-12-13T18:30:00.000+00:00",
+    "updatedDate": "2020-12-13T18:30:00.000+00:00"
+}
+=============================================================
+Api :- http://localhost:9092/insertNewUserWithLocation
+
+request :-
+{
+    "name": "john",
+    "email": "john@test.com",
+    "birthdate": "1996-08-13",
+    "locationName": "new york",
+    "status": "inactive"
+}
+
+response :- 
+new user created successfully
+=============================================================
+Api :- http://localhost:9092/updatePerson
+
+request :-
+{
+    "personId": 4,
+    "name": "john",
+    "email": "johnSmith@test.com",
+    "birthdate": "1996-08-25",
+    "cityId": 1,
+    "status": "active"
+}
+
+response :-
+{
+    "personId": 4,
+    "name": "john",
+    "email": "johnSmith@test.com",
+    "birthdate": "1996-08-24T18:30:00.000+00:00",
+    "cityId": 1,
+    "status": "active",
+    "createdDate": "2020-12-13T18:30:00.000+00:00",
+    "updatedDate": "2020-12-13T18:30:00.000+00:00"
+}
+=============================================================
