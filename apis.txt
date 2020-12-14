@@ -52,15 +52,15 @@ Api :- http://localhost:9092/insertNewUserWithLocation
 
 request :-
 {
-    "name": "john",
-    "email": "john@test.com",
-    "birthdate": "1996-08-13",
-    "locationName": "new york",
+    "name": "nick",
+    "email": "nick@test.com",
+    "birthdate": "1995-05-13",
+    "locationName": "pune",
     "status": "inactive"
 }
 
 response :- 
-new user created successfully
+new user created with new location successfully
 =============================================================
 Api :- http://localhost:9092/updatePerson
 
