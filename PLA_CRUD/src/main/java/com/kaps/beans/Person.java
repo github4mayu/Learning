@@ -15,7 +15,6 @@ public class Person {
 	public String name;
 	public String email;
 	public Date birthdate;
-	public Integer cityId;
 	public String status;
 	public Date createdDate;
 	public Date updatedDate;

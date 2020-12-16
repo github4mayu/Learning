@@ -7,12 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.annotation.RequestScope;
 
 import com.kaps.beans.Location;
 import com.kaps.beans.NewUser;
 import com.kaps.beans.Person;
+import com.kaps.beans.PersonLocationAssn;
+import com.kaps.beans.UserStatus;
 import com.kaps.service.impl.PersonServiceImpl;
 
 @Controller
@@ -94,7 +94,6 @@ public class MainController {
 		return new ResponseEntity<Person>(personDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-
 	@RequestMapping(value="/updateLocation", method=RequestMethod.PUT)
 	public ResponseEntity<Location> updateLoacation(@RequestBody Location location){
 		Location locationDetails=null;
@@ -110,4 +109,65 @@ public class MainController {
 		}
 		return new ResponseEntity<Location>(locationDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}	
+	
+	@RequestMapping(value="/deactivate-user", method=RequestMethod.PUT)
+	public ResponseEntity<UserStatus> deactivateUser(@RequestBody UserStatus newUser){
+		UserStatus personLocationAssnStatus=null;
+		try {
+			if(newUser!=null) {
+				personLocationAssnStatus=personService.deactivateUser(newUser);
+				if(personLocationAssnStatus!=null) {
+					return new ResponseEntity<UserStatus>(personLocationAssnStatus,HttpStatus.OK);
+				}else {
+					return new ResponseEntity<UserStatus>(personLocationAssnStatus,HttpStatus.NOT_FOUND);
+				}
+			}else {
+				return new ResponseEntity<UserStatus>(personLocationAssnStatus,HttpStatus.NOT_ACCEPTABLE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<UserStatus>(personLocationAssnStatus, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@RequestMapping(value="/reactivate-user", method=RequestMethod.PUT)
+	public ResponseEntity<UserStatus> reactivateUser(@RequestBody UserStatus newUser){
+		UserStatus personLocationAssnStatus=null;
+		try {
+			if(newUser!=null) {
+				personLocationAssnStatus=personService.reactivateUser(newUser);
+				if(personLocationAssnStatus!=null) {
+					return new ResponseEntity<UserStatus>(personLocationAssnStatus,HttpStatus.OK);
+				}else {
+					return new ResponseEntity<UserStatus>(personLocationAssnStatus,HttpStatus.NOT_FOUND);
+				}
+			}else {
+				return new ResponseEntity<UserStatus>(personLocationAssnStatus,HttpStatus.NOT_ACCEPTABLE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<UserStatus>(personLocationAssnStatus, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@RequestMapping(value="/assign-location", method=RequestMethod.POST)
+	public ResponseEntity<String> assignLocation(@RequestBody UserStatus newUser ){
+		try {
+			if(newUser!=null) {
+				Integer status=personService.statusEntry(newUser.getUserName(), newUser.getLocationName());
+				if(status!=0) {
+					return new ResponseEntity<String>("location assigned",HttpStatus.OK);	
+				}else {
+					return new ResponseEntity<String>("location failed to assign",HttpStatus.OK);
+				}
+			}else {
+				return new ResponseEntity<String>("please provide details",HttpStatus.NOT_ACCEPTABLE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<String>("Error occured", HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }

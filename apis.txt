@@ -26,7 +26,6 @@ response :-
     "name": "cipher",
     "email": "king@test.com",
     "birthdate": "1993-04-24T18:30:00.000+00:00",
-    "cityId": 3,
     "status": "inactive",
     "createdDate": "2020-11-24T18:30:00.000+00:00",
     "updatedDate": "2020-12-13T18:30:00.000+00:00"
@@ -66,23 +65,54 @@ Api :- http://localhost:9092/updatePerson
 
 request :-
 {
-    "personId": 4,
-    "name": "john",
-    "email": "johnSmith@test.com",
-    "birthdate": "1996-08-25",
-    "cityId": 1,
+    "personId": 5,
+    "name": "nick",
+    "email": "nick@test.com",
+    "birthdate": "1995-05-13",
     "status": "active"
 }
 
 response :-
 {
-    "personId": 4,
-    "name": "john",
-    "email": "johnSmith@test.com",
-    "birthdate": "1996-08-24T18:30:00.000+00:00",
-    "cityId": 1,
+    "personId": 5,
+    "name": "nick",
+    "email": "nick@test.com",
+    "birthdate": "1995-05-12T18:30:00.000+00:00",
     "status": "active",
     "createdDate": "2020-12-13T18:30:00.000+00:00",
-    "updatedDate": "2020-12-13T18:30:00.000+00:00"
+    "updatedDate": "2020-12-14T18:30:00.000+00:00"
 }
 =============================================================
+Api :- http://localhost:9092/deactivate-user
+
+request :-
+{
+    "userName": "james",
+    "locationName": "delhi"
+}
+
+response :-
+{
+    "userName": "james",
+    "locationName": "delhi",
+    "status":"inactive"
+}
+=============================================================
+Api :- http://localhost:9092/reactivate-user
+
+request :-
+{
+    "userName": "james",
+    "locationName": "delhi"
+}
+
+response :-
+{
+    "userName": "james",
+    "locationName": "delhi",
+    "status":"active"
+}
+=============================================================
+
+
+
