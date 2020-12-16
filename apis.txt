@@ -1,4 +1,4 @@
-Api :-http://localhost:9092/locationInfo
+Api :-http://localhost:9092/location-info
 
 request :-
 {
@@ -13,7 +13,7 @@ response :-
     "updatedDate": "2020-12-13T18:30:00.000+00:00"
 }
 =============================================================
-Api :-http://localhost:9092/personInfo
+Api :-http://localhost:9092/person-info
 
 request :-
 {
@@ -31,7 +31,7 @@ response :-
     "updatedDate": "2020-12-13T18:30:00.000+00:00"
 }
 =============================================================
-Api :-http://localhost:9092/updateLocation
+Api :-http://localhost:9092/update-location
 
 request :-
 {
@@ -47,7 +47,7 @@ response :-
     "updatedDate": "2020-12-13T18:30:00.000+00:00"
 }
 =============================================================
-Api :- http://localhost:9092/insertNewUserWithLocation
+Api :- http://localhost:9092/insert-new-user-with-location
 
 request :-
 {
@@ -61,7 +61,7 @@ request :-
 response :- 
 new user created with new location successfully
 =============================================================
-Api :- http://localhost:9092/updatePerson
+Api :- http://localhost:9092/update-person
 
 request :-
 {

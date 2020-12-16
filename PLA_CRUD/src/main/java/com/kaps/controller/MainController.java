@@ -26,7 +26,7 @@ public class MainController {
 		return new ResponseEntity<String>("Testing the api", HttpStatus.OK);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "personInfo")
+	@RequestMapping(method = RequestMethod.GET, value = "personinfo")
 	public ResponseEntity<Person> getPersonDetails(@RequestBody Person user) {
 		Person personDetails = null;
 		try {
@@ -44,7 +44,7 @@ public class MainController {
 		return new ResponseEntity<Person>(personDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "locationInfo")
+	@RequestMapping(method = RequestMethod.GET, value = "locationinfo")
 	public ResponseEntity<Location> getPersonDetails(@RequestBody Location location) {
 		Location locationDetails = null;
 		try {
@@ -62,7 +62,7 @@ public class MainController {
 		return new ResponseEntity<Location>(locationDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@RequestMapping(value="/insertNewUserWithLocation", method=RequestMethod.POST)
+	@RequestMapping(value="/insert-new-user-with-location", method=RequestMethod.POST)
 	public ResponseEntity<String> insertNewUserWithLocation(@RequestBody NewUser newUser ){
 		String result=null;
 		try {
@@ -78,7 +78,7 @@ public class MainController {
 		return new ResponseEntity<String>("Error occured", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@RequestMapping(value="/updatePerson", method=RequestMethod.PUT)
+	@RequestMapping(value="/update-person", method=RequestMethod.PUT)
 	public ResponseEntity<Person> updateUser(@RequestBody Person person){
 		Person personDetails=null;
 		try {
@@ -94,7 +94,7 @@ public class MainController {
 		return new ResponseEntity<Person>(personDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@RequestMapping(value="/updateLocation", method=RequestMethod.PUT)
+	@RequestMapping(value="/update-location", method=RequestMethod.PUT)
 	public ResponseEntity<Location> updateLoacation(@RequestBody Location location){
 		Location locationDetails=null;
 		try {
